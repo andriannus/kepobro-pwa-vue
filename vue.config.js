@@ -16,6 +16,12 @@ module.exports = {
       background_color: '#f5f5f5',
       description: 'Dapatkan informasi terbaru mengenai Liga Primer Inggris',
       short_name: 'KB News'
+    },
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: 'src/service-worker.js'
     }
   }
 }
