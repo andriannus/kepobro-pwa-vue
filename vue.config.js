@@ -15,7 +15,8 @@ module.exports = {
     manifestOptions: {
       background_color: '#f5f5f5',
       description: 'Dapatkan informasi terbaru mengenai Liga Primer Inggris',
-      short_name: 'KB News'
+      short_name: 'KB News',
+      gcm_sender_id: '182827689329'
     },
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',

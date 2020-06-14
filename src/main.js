@@ -4,6 +4,7 @@ import router from '@/router'
 import store from '@/store'
 
 import '@/plugins/vue-meta.plugin'
+import '@/registerPushNotification'
 import '@/registerServiceWorker'
 import '@/main.scss'
 
