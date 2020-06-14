@@ -1,0 +1,64 @@
+@import "shared/scss/abstract/mixin";
+
+.Standings {
+  &-img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.Team {
+  &-img {
+    @include mobile() {
+      height: 56px;
+      width: auto;
+    }
+
+    @include tablet() {
+      height: 76px;
+      width: auto;
+    }
+
+    @include widescreen() {
+      height: 96px;
+      width: auto;
+    }
+  }
+}
+
+.Table {
+  &-responsive {
+    overflow-x: auto;
+  }
+}
+
+.u-isEllipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Team {
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.Modal {
+  &-team {
+    &.modal {
+      @include widescreen() {
+        width: 30%;
+      }
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons&display=swap");
+@import "materialize-css/sass/materialize.scss";
+@import "shared/scss/abstract/spacing";

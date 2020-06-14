@@ -1,0 +1,43 @@
+$spacer: 1rem !default;
+
+@for $i from 0 through 5 {
+  .u-marginTop-#{$i} {
+    margin-top: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-marginRight-#{$i} {
+    margin-right: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-marginBottom-#{$i} {
+    margin-bottom: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-marginLeft-#{$i} {
+    margin-left: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-marginAll-#{$i} {
+    margin: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-paddingTop-#{$i} {
+    padding-top: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-paddingRight-#{$i} {
+    padding-right: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-paddingBottom-#{$i} {
+    padding-bottom: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-paddingLeft-#{$i} {
+    padding-left: ($spacer * ($i * 0.25)) !important;
+  }
+
+  .u-paddingAll-#{$i} {
+    padding: ($spacer * ($i * 0.25)) !important;
+  }
+}
