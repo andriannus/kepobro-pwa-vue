@@ -18,12 +18,11 @@ self.addEventListener('push', event => {
     body = event.data.text()
   }
 
-  const logo = 'img/logo.png'
   const title = 'KepoBro News'
   const options = {
     body,
-    icon: logo,
-    badge: logo,
+    icon: 'img/icon/android-chrome-192x192',
+    badge: 'img/icon/apple-touch-icon-72x72',
     vibrate: [100, 50, 100]
   }
 
