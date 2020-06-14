@@ -2,6 +2,7 @@ import AppModal from '@/shared/components/AppModal.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { $axios } from '@/shared/services/axios.service'
 import { getTeam, saveTeam } from '@/shared/services/db.service'
+import offlineImage from '@/assets/images/offline.png'
 
 export default {
   metaInfo: {
@@ -67,6 +68,10 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    handleLoadImageError (e) {
+      e.target.src = offlineImage
     }
   }
 }

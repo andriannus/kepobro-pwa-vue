@@ -7,7 +7,12 @@
         <div class="Team card" @click="showTeam(team)">
           <div class="card-content center-align u-paddingAll-3">
             <div class="u-marginBottom-2">
-              <img :src="team.crestUrl" :alt="team.name" class="Team-img" />
+              <img
+                :src="team.crestUrl"
+                :alt="team.name"
+                class="Team-img"
+                @error="handleLoadImageError"
+              />
             </div>
 
             <p class="u-isEllipsis">{{ team.name }}</p>
@@ -26,7 +31,12 @@
     <app-modal :name="modalName" ref="modal">
       <template #content>
         <div class="center-align">
-          <img :src="selectedTeam.crestUrl" :alt="selectedTeam.name" class="Team-img" />
+          <img
+            :src="selectedTeam.crestUrl"
+            :alt="selectedTeam.name"
+            class="Team-img"
+            @error="handleLoadImageError"
+          />
 
           <h5>{{ selectedTeam.name }}</h5>
           <p>{{ selectedTeam.venue }}</p>
