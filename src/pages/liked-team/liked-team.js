@@ -9,8 +9,8 @@ export default {
   },
 
   components: {
-    'app-modal': AppModal,
-    'app-preloader': AppPreloader
+    AppModal,
+    AppPreloader
   },
 
   data () {

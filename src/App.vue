@@ -33,9 +33,9 @@ export default {
   },
 
   components: {
-    'app-navbar': AppNavbar,
-    'app-sidenav': AppSidenav,
-    'app-offline': AppOffline
+    AppNavbar,
+    AppSidenav,
+    AppOffline
   },
 
   computed: mapState(['isOffline']),

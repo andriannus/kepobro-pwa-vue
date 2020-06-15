@@ -7,7 +7,7 @@ export default {
   },
 
   components: {
-    'app-preloader': AppPreloader
+    AppPreloader
   },
 
   data () {
