@@ -1,5 +1,10 @@
+const MATCH_STATUS = {
+  Finished: 'FINISHED',
+  Scheduled: 'SCHEDULED'
+}
+
 const MUTATION = {
   SetIsOffline: 'SetIsOffline'
 }
 
-export { MUTATION }
+export { MATCH_STATUS, MUTATION }

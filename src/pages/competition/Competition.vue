@@ -13,7 +13,7 @@
                     <div>
                       {{ match.awayTeam.name }}
                       <span
-                        v-if="match.status === 'FINISHED'"
+                        v-if="match.status === matchStatus.Finished"
                         class="secondary-content black-text"
                       >{{ match.score.fullTime.awayTeam }}</span>
                     </div>
@@ -22,7 +22,7 @@
                   <li class="collection-item">
                     {{ match.homeTeam.name }}
                     <span
-                      v-if="match.status === 'FINISHED'"
+                      v-if="match.status === matchStatus.Finished"
                       class="secondary-content black-text"
                     >{{ match.score.fullTime.homeTeam }}</span>
                   </li>
@@ -30,7 +30,7 @@
               </div>
 
               <div class="col s3 u-marginRight-1 u-paddingLeft-1">
-                <div v-if="match.status === 'FINISHED'" class="center-align">
+                <div v-if="match.status === matchStatus.Finished" class="center-align">
                   <p class="u-marginAll-0">FT</p>
                   <span class="grey-text">{{ getFinishedDate(match.utcDate) }}</span>
                 </div>

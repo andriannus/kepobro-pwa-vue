@@ -2,6 +2,7 @@ import { format } from 'date-fns'
 
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { $axios } from '@/shared/services/axios.service'
+import { MATCH_STATUS } from '@/shared/constants/types.constant'
 
 export default {
   metaInfo: {
@@ -15,7 +16,8 @@ export default {
   data () {
     return {
       isLoading: false,
-      matches: []
+      matches: [],
+      matchStatus: MATCH_STATUS
     }
   },
 
