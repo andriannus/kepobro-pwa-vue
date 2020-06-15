@@ -27,6 +27,11 @@ const routes = [
     path: '/liked-team',
     name: 'LikedTeam',
     component: () => import(/* webpackChunkName: "liked-team" */ '@/pages/liked-team/LikedTeam.vue')
+  },
+  {
+    path: '*',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "not-found" */ '@/pages/not-found/NotFound.vue')
   }
 ]
 
