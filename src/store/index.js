@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import { MUTATION } from '@/shared/constants/types.constant'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    isOffline: false
   },
+
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    [MUTATION.SetIsOffline] (state, status) {
+      state.isOffline = status
+    }
   }
 })
