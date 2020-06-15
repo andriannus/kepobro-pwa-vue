@@ -7,4 +7,10 @@ const MUTATION = {
   SetIsOffline: 'SetIsOffline'
 }
 
-export { MATCH_STATUS, MUTATION }
+const TRANSACTION_MODE = {
+  ReadOnly: 'readonly',
+  ReadWrite: 'readwrite',
+  VersionChange: 'versionchange'
+}
+
+export { MATCH_STATUS, MUTATION, TRANSACTION_MODE }

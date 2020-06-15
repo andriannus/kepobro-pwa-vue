@@ -1,6 +1,7 @@
 import { openDB } from 'idb'
 
-import { DB_NAME, DB_VERSION, OBJECT_STORE, TRANSACTION_MODE } from '@/shared/constants/db.constant'
+import { DB_NAME, DB_VERSION, OBJECT_STORE } from '@/shared/constants/db.constant'
+import { TRANSACTION_MODE } from '@/shared/constants/types.constant'
 
 const createDatabase = () => {
   return openDB(DB_NAME, DB_VERSION, {
