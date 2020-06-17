@@ -11,6 +11,12 @@ self.addEventListener('message', event => {
 self.__precacheManifest = [].concat(self.__precacheManifest || [])
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
+workbox.routing.registerNavigationRoute('/index.html')
+workbox.routing.registerRoute(
+  new RegExp('https://api.football-data.org/v2/'),
+  workbox.strategies.cacheFirst()
+)
+
 self.addEventListener('push', event => {
   let body = 'Push message no payload'
 
@@ -29,7 +35,7 @@ self.addEventListener('push', event => {
   event.waitUntil(self.registration.showNotification(title, options))
 })
 
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', event => {
   const { notification } = event
 
   notification.close()
