@@ -14,7 +14,7 @@ workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 workbox.routing.registerNavigationRoute('/index.html')
 workbox.routing.registerRoute(
   new RegExp('https://api.football-data.org/v2/'),
-  workbox.strategies.cacheFirst()
+  workbox.strategies.staleWhileRevalidate()
 )
 
 self.addEventListener('push', event => {
