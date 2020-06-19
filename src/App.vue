@@ -9,9 +9,7 @@
         </div>
 
         <div class="col s12 l9">
-          <app-offline v-if="isOffline"></app-offline>
-
-          <router-view v-else></router-view>
+          <router-view></router-view>
         </div>
       </div>
     </div>
@@ -19,12 +17,10 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 import AppNavbar from '@/shared/components/AppNavbar.vue'
 import AppSidenav from '@/shared/components/AppSidenav.vue'
-import AppOffline from '@/shared/components/AppOffline.vue'
-import { MUTATION } from '@/shared/constants/types.constant'
+import { showOfflineToast, showOnlineToast } from '@/shared/services/connection.service'
 
 export default {
   metaInfo: {
@@ -34,11 +30,8 @@ export default {
 
   components: {
     AppNavbar,
-    AppSidenav,
-    AppOffline
+    AppSidenav
   },
-
-  computed: mapState(['isOffline']),
 
   created () {
     this.handleConnection()
@@ -47,11 +40,11 @@ export default {
   methods: {
     handleConnection () {
       window.addEventListener('online', () => {
-        this.$store.commit(MUTATION.SetIsOffline, false)
+        showOnlineToast()
       })
 
       window.addEventListener('offline', () => {
-        this.$store.commit(MUTATION.SetIsOffline, true)
+        showOfflineToast()
       })
     }
   }
