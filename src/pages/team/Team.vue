@@ -2,6 +2,8 @@
   <div>
     <app-preloader v-if="isLoading"></app-preloader>
 
+    <app-error v-else-if="isError"></app-error>
+
     <div v-else class="row">
       <div v-for="(team, index) in teams" :key="'t-' + index" class="col s4 m4 l3">
         <div class="Team card" @click="showTeam(team)">

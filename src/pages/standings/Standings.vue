@@ -2,6 +2,8 @@
   <div>
     <app-preloader v-if="isLoading"></app-preloader>
 
+    <app-error v-else-if="isError"></app-error>
+
     <div v-else class="card">
       <div class="Table-responsive card-content">
         <table class="striped">

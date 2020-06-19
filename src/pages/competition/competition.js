@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 
+import AppError from '@/shared/components/AppError.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { $axios } from '@/shared/services/axios.service'
 import { MATCH_STATUS } from '@/shared/constants/types.constant'
@@ -10,11 +11,13 @@ export default {
   },
 
   components: {
+    AppError,
     AppPreloader
   },
 
   data () {
     return {
+      isError: false,
       isLoading: false,
       matches: [],
       matchStatus: MATCH_STATUS
@@ -31,13 +34,16 @@ export default {
       const filters = `dateFrom=${dateFrom}&dateTo=${dateTo}`
 
       this.isLoading = true
+      this.isError = false
 
       try {
         const { data } = await $axios.get(`competitions/PL/matches?${filters}`)
 
         this.matches = data.matches
-      } catch (error) {
-        console.log(error)
+        this.isError = false
+      } catch {
+        this.matches = []
+        this.isError = true
       } finally {
         this.isLoading = false
       }

@@ -1,3 +1,4 @@
+import AppError from '@/shared/components/AppError.vue'
 import AppModal from '@/shared/components/AppModal.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { $axios } from '@/shared/services/axios.service'
@@ -10,6 +11,7 @@ export default {
   },
 
   components: {
+    AppError,
     AppModal,
     AppPreloader
   },
@@ -17,7 +19,7 @@ export default {
   data () {
     return {
       isAlreadyLiked: false,
-      db: null,
+      isError: false,
       isLoading: false,
       modal: null,
       modalName: 'Modal-team',
@@ -33,13 +35,16 @@ export default {
   methods: {
     async fetchTeams () {
       this.isLoading = true
+      this.isError = false
 
       try {
         const { data } = await $axios.get('competitions/2021/teams')
 
         this.teams = data.teams
-      } catch (error) {
-        console.log(error)
+        this.isError = false
+      } catch {
+        this.teams = []
+        this.isError = true
       } finally {
         this.isLoading = false
       }

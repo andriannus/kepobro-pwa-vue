@@ -2,6 +2,8 @@
   <div>
     <app-preloader v-if="isLoading"></app-preloader>
 
+    <app-error v-else-if="isError"></app-error>
+
     <div v-else class="row">
       <div v-for="(match, index) in matches" :key="'m-' + index" class="col s12 l6">
         <div class="card">
