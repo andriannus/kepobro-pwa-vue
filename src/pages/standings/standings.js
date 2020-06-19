@@ -1,5 +1,6 @@
 import AppError from '@/shared/components/AppError.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
+import offlineImage from '@/assets/images/offline.png'
 import { $axios } from '@/shared/services/axios.service'
 
 export default {
@@ -41,6 +42,10 @@ export default {
       } finally {
         this.isLoading = false
       }
+    },
+
+    handleLoadImageError (e) {
+      e.target.src = offlineImage
     }
   }
 }

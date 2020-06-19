@@ -25,7 +25,12 @@
             <tr v-for="(standing, index) in standings" :key="'s-' + index">
               <td>{{ index + 1 }}</td>
               <td>
-                <img :src="standing.team.crestUrl" :alt="standing.team.name" class="Standings-img" />
+                <img
+                  :src="standing.team.crestUrl"
+                  :alt="standing.team.name"
+                  class="Standings-img"
+                  @error="handleLoadImageError"
+                />
               </td>
               <td>{{ standing.team.name }}</td>
               <td>{{ standing.playedGames }}</td>
