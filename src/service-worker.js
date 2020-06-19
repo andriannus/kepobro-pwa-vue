@@ -1,5 +1,27 @@
 /* eslint-disable no-undef */
 
+const ICON_URLS = [
+  '/img/icons/android-chrome-192x192.png',
+  '/img/icons/android-chrome-512x512.png',
+  '/img/icons/android-chrome-maskable-192x192.png',
+  '/img/icons/android-chrome-maskable-512x512.png',
+  '/img/icons/apple-touch-icon.png',
+  '/img/icons/apple-touch-icon-57x57.png',
+  '/img/icons/apple-touch-icon-60x60.png',
+  '/img/icons/apple-touch-icon-72x72.png',
+  '/img/icons/apple-touch-icon-76x76.png',
+  '/img/icons/apple-touch-icon-114x114.png',
+  '/img/icons/apple-touch-icon-120x120.png',
+  '/img/icons/apple-touch-icon-144x144.png',
+  '/img/icons/apple-touch-icon-152x152.png',
+  '/img/icons/apple-touch-icon-180x180.png',
+  '/img/icons/favicon-16x16.png',
+  '/img/icons/favicon-32x32.png',
+  '/img/icons/msapplication-icon-144x144.png',
+  '/img/icons/mstile-150x150.png',
+  '/img/icons/safari-pinned-tab.svg'
+]
+
 workbox.core.setCacheNameDetails({ prefix: 'kepobro-news-vue' })
 
 self.addEventListener('message', event => {
@@ -8,7 +30,7 @@ self.addEventListener('message', event => {
   }
 })
 
-self.__precacheManifest = [].concat(self.__precacheManifest || [])
+self.__precacheManifest = ICON_URLS.concat(self.__precacheManifest || [])
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
 
 workbox.routing.registerNavigationRoute('/index.html')
