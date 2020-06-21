@@ -4,7 +4,7 @@
 
     <div v-else-if="teams.length" class="row">
       <div v-for="(team, index) in teams" :key="'t-' + index" class="col s4 m4 l3">
-        <div class="Team card" @click="showTeam(team)">
+        <div class="Team card hoverable" @click="showTeam(team)">
           <div class="card-content center-align u-paddingAll-3">
             <div class="u-marginBottom-2">
               <img
@@ -15,7 +15,9 @@
               />
             </div>
 
-            <p class="u-isEllipsis">{{ team.name }}</p>
+            <p class="truncate">
+              <strong>{{ team.name }}</strong>
+            </p>
           </div>
         </div>
       </div>
@@ -30,7 +32,7 @@
 
     <app-modal :name="modalName" ref="modal">
       <template #content>
-        <div class="center-align">
+        <div>
           <img
             :src="selectedTeam.crestUrl"
             :alt="selectedTeam.name"
@@ -38,17 +40,24 @@
             @error="handleLoadImageError"
           />
 
-          <h5>{{ selectedTeam.name }}</h5>
-          <p>{{ selectedTeam.venue }}</p>
-          <p>{{ selectedTeam.address }}</p>
+          <h6>
+            <strong>{{ selectedTeam.name }}</strong>
+          </h6>
+          <p class="grey-text text-darken-1 u-marginBottom-0">
+            {{ selectedTeam.venue }}
+            <br />
+            {{ selectedTeam.address }}
+          </p>
         </div>
       </template>
 
       <template #footer>
         <button
-          class="modal-close waves-effect btn-flat red-text"
+          class="modal-close btn-flat red-text"
           @click="unlikeTeam(selectedTeam.id)"
-        >Unlike</button>
+        >
+          <i class="material-icons">favorite</i>
+        </button>
       </template>
     </app-modal>
   </div>

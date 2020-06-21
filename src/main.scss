@@ -1,5 +1,9 @@
 @import "shared/scss/abstract/mixin";
 
+.card {
+  border-radius: 4px !important;
+}
+
 .Standings {
   &-img {
     width: 24px;
@@ -37,28 +41,15 @@
   }
 }
 
-.u-isEllipsis {
-  display: inline-block;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .Team {
   cursor: pointer;
-
-  &:hover {
-    box-shadow: none;
-  }
 }
 
 .Modal {
   &-team {
     &.modal {
-      @include widescreen() {
-        width: 30%;
-      }
+      border-radius: 4px;
+      max-width: 280px;
     }
   }
 }
