@@ -41,17 +41,17 @@ export default {
     handleConnection () {
       window.addEventListener('online', () => {
         toggleToast({
-          html: 'You are currently offline.',
-          classes: 'red',
-          displayLength: 36000,
+          html: 'Connected',
+          classes: 'green',
           outDuration: 0
         })
       })
 
       window.addEventListener('offline', () => {
         toggleToast({
-          html: 'Connected',
-          classes: 'green',
+          html: 'You are currently offline.',
+          classes: 'red',
+          displayLength: 36000,
           outDuration: 0
         })
       })
