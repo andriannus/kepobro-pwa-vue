@@ -1,6 +1,7 @@
 import AppModal from '@/shared/components/AppModal.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { deleteTeam, getAllTeam } from '@/shared/services/db.service'
+import { toggleToast } from '@/shared/services/toast.service'
 import offlineImage from '@/assets/images/offline.png'
 
 export default {
@@ -51,6 +52,11 @@ export default {
         await deleteTeam(id)
 
         this.fetchLikedTeams()
+
+        toggleToast({
+          html: 'Dihapus dari daftar tim yang disukai.',
+          outDuration: 0
+        })
       } catch (error) {
         console.log(error)
       }

@@ -2,7 +2,8 @@ import AppError from '@/shared/components/AppError.vue'
 import AppModal from '@/shared/components/AppModal.vue'
 import AppPreloader from '@/shared/components/AppPreloader.vue'
 import { $axios } from '@/shared/services/axios.service'
-import { getTeam, saveTeam } from '@/shared/services/db.service'
+import { deleteTeam, getTeam, saveTeam } from '@/shared/services/db.service'
+import { toggleToast } from '@/shared/services/toast.service'
 import offlineImage from '@/assets/images/offline.png'
 
 export default {
@@ -57,9 +58,31 @@ export default {
       this.$refs.modal.open()
     },
 
-    async saveTeam () {
+    async likeTeam () {
       try {
         await saveTeam(this.selectedTeam)
+        this.setAlreadySaved(this.selectedTeam.id)
+
+        toggleToast({
+          html: 'Ditambahkan ke daftar tim yang disukai.',
+          outDuration: 0
+        })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async unlikeTeam () {
+      const { id } = this.selectedTeam
+
+      try {
+        await deleteTeam(id)
+        this.setAlreadySaved(id)
+
+        toggleToast({
+          html: 'Dihapus dari daftar tim yang disukai.',
+          outDuration: 0
+        })
       } catch (error) {
         console.log(error)
       }
