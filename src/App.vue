@@ -20,7 +20,7 @@
 
 import AppNavbar from '@/shared/components/AppNavbar.vue'
 import AppSidenav from '@/shared/components/AppSidenav.vue'
-import { showOfflineToast, showOnlineToast } from '@/shared/services/connection.service'
+import { toggleToast } from '@/shared/services/toast.service'
 
 export default {
   metaInfo: {
@@ -40,11 +40,20 @@ export default {
   methods: {
     handleConnection () {
       window.addEventListener('online', () => {
-        showOnlineToast()
+        toggleToast({
+          html: 'You are currently offline.',
+          classes: 'red',
+          displayLength: 36000,
+          outDuration: 0
+        })
       })
 
       window.addEventListener('offline', () => {
-        showOfflineToast()
+        toggleToast({
+          html: 'Connected',
+          classes: 'green',
+          outDuration: 0
+        })
       })
     }
   }
