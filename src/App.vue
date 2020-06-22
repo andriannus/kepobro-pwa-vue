@@ -17,7 +17,6 @@
 </template>
 
 <script>
-
 import AppNavbar from '@/shared/components/AppNavbar.vue'
 import AppSidenav from '@/shared/components/AppSidenav.vue'
 import { toggleToast } from '@/shared/services/toast.service'
