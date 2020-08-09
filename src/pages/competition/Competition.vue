@@ -4,7 +4,7 @@
 
     <app-error v-else-if="isError"></app-error>
 
-    <div v-else class="row">
+    <div v-else-if="matches.length" class="row">
       <div v-for="(match, index) in matches" :key="'m-' + index" class="col s12 l6">
         <div class="card">
           <div class="card content">
@@ -46,6 +46,11 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div v-else class="center-align u-marginTop-2">
+      <i class="material-icons large">search</i>
+      <p>Pertandingan untuk 1 minggu ke depan tidak ditemukan</p>
     </div>
   </div>
 </template>
